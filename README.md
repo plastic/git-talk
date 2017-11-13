@@ -1,7 +1,7 @@
 ![git](https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png "git")
 
 # git
-============================
+=====
 Guia de referência sobre GIT
 
 ## git init
