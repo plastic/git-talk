@@ -1,8 +1,7 @@
 ![git](https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png "git")
 
 # git
-=====
-Guia de referência sobre GIT
+- Guia de referência sobre GIT
 
 ## git init
 - Cria um repositório, também podemos criar um repositório sem o working directory utilizando ```--bare```
@@ -105,7 +104,6 @@ Guia de referência sobre GIT
 - ```git diff master origin/master``` podemos fazer um diff antes de subir
 
 # GitFlow
-=========
 - É uma forma de estruturar o versionamento dos projetos com convenções
 
 ## Regras
