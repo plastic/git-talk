@@ -14,6 +14,7 @@ Adiciona os arquivos rastreados no repositório
 
 ## git log --oneline --decorate
 Usamos para visualizar a arvoré de commits
+-p <file>
 
 ## git show
 Mostra as alterações realizadas no ultimo commit
@@ -25,6 +26,10 @@ Remove um arquivo da stage area
 soft - apenas altera a referencia mas mantem os arquivos na staging area
 mixed - idem soft mas remove os arquivos da staging area
 hard - idem ao soft e apaga os arquivos
+--keep - mantem os arquivos não commitados
+
+## git revert <commit>
+Reverte um commit criando um novo com o código revertido.
 
 ## git reflog
 desfazer um reset
@@ -36,6 +41,7 @@ Cria uma nova linha de desenvolvimento isolada. (faz um apontamento utilizando o
 ## git checkout
 Faz o chaveamento entre os branches
 (.get/HEAD)
+git checkout HEAD/commit <file> = desfaz alterações do working
 
 ## git merge
 fast-forward é apenas umas atualização da referencia e só é possível quando nao existe divergencia entre as branchs
@@ -51,7 +57,8 @@ git stash branch xpto = cria um novo branch a partir do stash
 
 ## git rebase
 
-## git blame
+## git blame <file>
+Quem alterou e quando
 
 ## git remote
 add name/url
