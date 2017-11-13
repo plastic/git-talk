@@ -35,18 +35,27 @@ estrategia recursiva é utilizada quando temos divergencias
 
 ## git stash
 Área onde podemos armazenar código sem a necessidade de um commit
+git stash save "identificador"
+git stash list
+git stash apply stash@{0} ou drop
+git stash pop = faz o apply e drop do topo da pilha
+git stash branch xpto = cria um novo branch a partir do stash
 
-git rebase
+## git rebase
 
-git blame
+## git blame
 
-git remote
+## git remote
+add name/url
+-v
 
-git config
+## git config
 
-git pull
+## git pull
+oposto do push mas faz merge automaticamente.
 
-git push
+## git push
+Atualiza uma referencia remota a partir da local
 
 # gitflow
 
