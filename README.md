@@ -13,13 +13,21 @@ Retorna o status dos arquivos do working directory
 Adiciona os arquivos rastreados no repositório
 
 ## git log --oneline --decorate
-Usamos para visualizar a arvoré de commits e branches
+Usamos para visualizar a arvoré de commits
+
+## git show
+Mostra as alterações realizadas no ultimo commit
 
 ## git rm
 Remove um arquivo da stage area
 
 ## git reset
+soft - apenas altera a referencia mas mantem os arquivos na staging area
+mixed - idem soft mas remove os arquivos da staging area
+hard - idem ao soft e apaga os arquivos
 
+## git reflog
+desfazer um reset
 
 ## git branch
 Cria uma nova linha de desenvolvimento isolada. (faz um apontamento utilizando o hash de um commit)
@@ -50,6 +58,7 @@ add name/url
 -v
 
 ## git config
+user.name ou user.email
 
 ## git pull
 oposto do push mas faz merge automaticamente.
@@ -57,12 +66,24 @@ oposto do push mas faz merge automaticamente.
 ## git push
 Atualiza uma referencia remota a partir da local
 
+## git fetch
+Só traz as atualizacoes sem fazer merge.
+
+## git diff
+git diff master origin/master
+
 # gitflow
+É uma forma de estruturar o versionamento dos projetos com convenções
 
-branchs
+branches obrigatórios
+master - código em produção
+develop - código para a proxima versao do projeto/desenvolvimento
 
-flows
-
+branches de suporte
+feature
+bugfix
+hotfix
+release
 
 
 
