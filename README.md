@@ -1,7 +1,8 @@
 # git
+Guia de referência sobre GIT
 
 ## git init
-Cria um repositório, também podemos criar um repositorio sem o working dir utilizando --bare
+Cria um repositório, também podemos criar um repositorio sem o working directory utilizando --bare
 
 ## git add -A ou git add . ou git add --all
 Adiciona arquivos (untracked, modified) no staging area
@@ -23,7 +24,8 @@ Mostra as alterações realizadas no ultimo commit
 Remove um arquivo da stage area
 
 ## git reset
-soft - apenas altera a referencia mas mantem os arquivos na staging area
+Comando responsável 
+soft - apenas altera a referência mas mantem os arquivos na staging area
 mixed - idem soft mas remove os arquivos da staging area
 hard - idem ao soft e apaga os arquivos
 --keep - mantem os arquivos não commitados
@@ -84,13 +86,33 @@ git diff master origin/master
 
 branches obrigatórios
 master - código em produção
-develop - código para a proxima versao do projeto/desenvolvimento
+develop - código para a próxima versão do projeto/desenvolvimento
 
 branches de suporte
-feature
-bugfix
-hotfix
-release
+feature - a partir da branch develop, criaremos as features necessárias
+bugfix - a partir da branch master, bug para ser solucionado em breve
+hotfix - a partir da master, bug crítico em produção que devemos resolver com prioridade
+release - branch para lançamento de uma feature/versão
 
+![figure] (https://leanpub.com/site_images/git-flow/git-workflow-release-cycle-3release.png)
+
+passos iniciais:
+```shellscript
+git init
+git checkout -b develop
+git add -A && git commit -m 'commit message'
+
+
+git checkout -b feature/task develop
+
+
+git checkout -b hotfix/1.1.0 master
+
+git checkout -b release/1.2.0 develop
+git add -A && git commit -m 'commit new version'
+git checkout master
+git merge --no-ff release/1.2.0
+git tag -a v1.0.0
+```
 
 
