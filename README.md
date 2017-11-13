@@ -84,35 +84,65 @@ git diff master origin/master
 # gitflow
 É uma forma de estruturar o versionamento dos projetos com convenções
 
-branches obrigatórios
+## Regras
+Não commitamos na master
+Master apenas recebe commit/referências
+
+## Branches
+Devemos seguir da seguinte forma.
+
+### branches obrigatórios
 master - código em produção
 develop - código para a próxima versão do projeto/desenvolvimento
 
-branches de suporte
+### branches de suporte
 feature - a partir da branch develop, criaremos as features necessárias
-bugfix - a partir da branch master, bug para ser solucionado em breve
 hotfix - a partir da master, bug crítico em produção que devemos resolver com prioridade
 release - branch para lançamento de uma feature/versão
 
-![figure] (https://leanpub.com/site_images/git-flow/git-workflow-release-cycle-3release.png)
+![git-flow](https://leanpub.com/site_images/git-flow/git-workflow-release-cycle-3release.png "git flow")
+![git-branch](http://nvie.com/img/hotfix-branches@2x.png "git branch")
 
-passos iniciais:
-```shellscript
+### fluxo padrão do desenvolvimento
+```
 git init
 git checkout -b develop
 git add -A && git commit -m 'commit message'
-
-
-git checkout -b feature/task develop
-
-
-git checkout -b hotfix/1.1.0 master
-
-git checkout -b release/1.2.0 develop
-git add -A && git commit -m 'commit new version'
-git checkout master
-git merge --no-ff release/1.2.0
-git tag -a v1.0.0
+git pull origin develop
+git push origin develop
 ```
 
+### fluxo de uma feature
+```
+git checkout -b feature/task develop
+git add -A && git commit -m 'commit new feature'
+git checkout develop
+git merge --no-ff feature/task
+git branch -d feature/task
+git pull origin develop
+git push origin develop
+```
 
+### fluxo de um hotfix
+```
+git checkout -b hotfix/1.1.1 master
+git add -A && git commit -m 'commit new hotfix and new version 1.1.1'
+git checkout master
+git merge --no-ff hotfix/1.1.1
+git tag -a v1.1.1
+git checkout develop
+git merge --no-ff hotfix/1.1.1
+git branch -d hotfix/1.1.1
+```
+
+### fluxo de um lançamento
+```
+git checkout -b release/1.2.0 develop
+git add -A && git commit -m 'commit new version 1.2.0'
+git checkout master
+git merge --no-ff release/1.2.0
+git tag -a v1.2.0
+git checkout develop
+git merge --no-ff release/1.2.0
+git branch -d release/1.2.0
+```
